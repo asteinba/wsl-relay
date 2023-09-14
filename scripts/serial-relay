@@ -1,5 +1,0 @@
-#!/bin/sh
-
-pipe="$1"
-link="$2"
-exec socat PTY,link="$link" SYSTEM:"while wsl-relay.exe --poll --input-closes --pipe $pipe; do true; done"

@@ -1,7 +1,0 @@
-#!/bin/sh
-
-name="$1"
-comport="$2"
-pipe=$(powershell.exe \(Get-VMComPort -VMName "$name" -Number "$comport"\).Path | tr '\\' / | tr -d '\r')
-
-exec socat EXEC:"wsl-relay.exe --input-closes --pipe $pipe" STDIO,rawer,escape=0xf
